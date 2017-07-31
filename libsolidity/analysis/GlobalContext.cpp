@@ -38,6 +38,7 @@ m_magicVariables(vector<shared_ptr<MagicVariableDeclaration const>>{make_shared<
 					make_shared<MagicVariableDeclaration>("msg", make_shared<MagicType>(MagicType::Kind::Message)),
 					make_shared<MagicVariableDeclaration>("tx", make_shared<MagicType>(MagicType::Kind::Transaction)),
 					make_shared<MagicVariableDeclaration>("now", make_shared<IntegerType>(256)),
+					make_shared<MagicVariableDeclaration>("abi", make_shared<MagicType>(MagicType::Kind::ABI)),
 					make_shared<MagicVariableDeclaration>("suicide",
 							make_shared<FunctionType>(strings{"address"}, strings{}, FunctionType::Kind::Selfdestruct)),
 					make_shared<MagicVariableDeclaration>("selfdestruct",
