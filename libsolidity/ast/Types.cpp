@@ -1786,6 +1786,11 @@ MemberList::MemberMap StructType::nativeMembers(ContractDefinition const*) const
 	return members;
 }
 
+TypePointer StructType::decodingType() const
+{
+	return location() == DataLocation::Storage ? std::make_shared<IntegerType>(256) : shared_from_this();
+}
+
 TypePointer StructType::interfaceType(bool _inLibrary) const
 {
 	if (!canBeUsedExternally(_inLibrary))

@@ -748,6 +748,7 @@ public:
 	{
 		return location() == DataLocation::Storage ? std::make_shared<IntegerType>(256) : shared_from_this();
 	}
+	virtual TypePointer decodingType() const override;
 	virtual TypePointer interfaceType(bool _inLibrary) const override;
 	virtual bool canBeUsedExternally(bool _inLibrary) const override;
 
