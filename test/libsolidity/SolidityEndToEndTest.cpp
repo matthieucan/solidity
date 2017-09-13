@@ -7913,7 +7913,7 @@ BOOST_AUTO_TEST_CASE(inline_assembly_function_call_assignment)
 		}
 	)";
 	compileAndRun(sourceCode, 0, "C");
-	BOOST_CHECK(callContractFunction("f()") == encodeArgs(u256(1), u256(2), u256(7)));
+	ABI_CHECK(callContractFunction("f()"), encodeArgs(u256(1), u256(2), u256(7)));
 }
 
 BOOST_AUTO_TEST_CASE(inline_assembly_function_call2)
