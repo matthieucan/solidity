@@ -7,6 +7,8 @@ Features:
  * Code Generator: Keep a single copy of encoding functions when using the experimental "ABIEncoderV2".
  * Optimizer: Add new optimization step to remove unused ``JUMPDEST``s.
  * Code Generator: Support passing ``structs`` as arguments and return parameters (requires ``pragma experimental ABIEncoderV2;`` for now).
+ * Code Generator: New ABI decoder which supports structs and arbitrarily nested
+   arrays and checks input size (activate using ``pragma experimental ABIEncoderV2;``.
  * Static Analyzer: Warn for using deprecated builtins ``sha3`` and ``suicide``
    (replaced by ``keccak256`` and ``selfdestruct``, introduced in 0.4.2 and 0.2.0, respectively).
  * Syntax Checker: Warn if no visibility is specified on contract functions.
