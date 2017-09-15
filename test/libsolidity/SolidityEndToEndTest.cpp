@@ -10100,6 +10100,23 @@ BOOST_AUTO_TEST_CASE(constant_string)
 	BOOST_CHECK(callContractFunction("h()") == encodeDyn(string("hello")));
 }
 
+BOOST_AUTO_TEST_CASE(abi_encode)
+{
+	char const* sourceCode = R"(
+		contract C {
+			function f() returns (bytes) {
+				return abi.encode(1, 2);
+			}
+			function g() returns (bytes) {
+				return abi.encodePacked(uint256(1), uint256(2));
+			}
+		}
+	)";
+	compileAndRun(sourceCode, 0, "C");
+	BOOST_CHECK(callContractFunction("f()") == encodeArgs(u256(1), u256(2)));
+	BOOST_CHECK(callContractFunction("g()") == encodeArgs(u256(1), u256(2)));
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 }
